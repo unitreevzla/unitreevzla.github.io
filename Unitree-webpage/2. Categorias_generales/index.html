@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorías de Componentes Unitree</title>
+    
+    <style>
+        /* --- CSS (Estilos) --- */
+        :root {
+            --header-height: 3.5rem;
+            --primary-color: #ffffff;
+            --secondary-color: #aaaaaa;
+            --accent-color: #007bff; /* Azul tecnológico */
+            --body-color: #0a0a0a;
+            --container-color: #1c1c1c;
+            --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--body-color);
+            color: var(--primary-color);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        /* --- Navegación Simplificada --- */
+        .header {
+            width: 100%;
+            background-color: var(--container-color);
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* --- Parallax Hero Section --- */
+        .parallax-hero {
+            /* Imagen de fondo/video placeholder */
+            background-image: url('https://via.placeholder.com/1920x1080/1a1a1a/cccccc?text=Fondo+Tecnologico+Parallax');
+            background-attachment: fixed; /* CLAVE para el efecto Parallax */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 70vh; /* Altura de la sección hero */
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-top: -var(--header-height);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* Oscurece el fondo */
+        }
+
+        .hero-content {
+            z-index: 10;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+        
+        .hero-content p {
+            font-size: 1.25rem;
+            color: var(--secondary-color);
+        }
+
+        /* --- Categorías Grid --- */
+        .categories-section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .category-card {
+            background-color: var(--container-color);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            height: 350px;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 123, 255, 0.2);
+        }
+        
+        .card-image-placeholder {
+            height: 60%;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+        }
+
+        .card-info {
+            padding: 1.5rem;
+            height: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-info p {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+        }
+
+        .card-link {
+            display: inline-block;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: color 0.3s;
+        }
+
+        .card-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- MEDIA QUERIES (Responsive) --- */
+        @media screen and (max-width: 768px) {
+            .parallax-hero {
+                height: 50vh;
+                background-attachment: scroll; /* Desactiva parallax en móvil para rendimiento */
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .category-grid {
+                grid-template-columns: 1fr; /* Una columna en móvil */
+            }
+            
+            .category-card {
+                height: auto; /* Altura flexible */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">UNITREE COMPONENTS</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="parallax-hero" id="parallax-section">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <h1>El Hardware de la Inteligencia Corpórea</h1>
+                <p>Explora las categorías de componentes que dan vida a la próxima generación de robots.</p>
+            </div>
+        </section>
+
+        <section class="categories-section">
+            <div class="container">
+                <h2 class="section-title">Componentes Principales</h2>
+                <div class="category-grid">
+                    
+                    <article class="category-card">
+                        <div class="card-image-placeholder">Motores, Articulaciones y Chasis (Imagen)</div>
+                        <div class="card-info">
+                            <div>
+                                <h3>⚙️ Mecánica y Actuadores</h3>
+                                <p>Servomotores, articulaciones, chasis livianos y componentes de diseño industrial robusto.</p>
+                            </div>
+                            <a href="#" class="card-link">Ver productos »</a>
+                        </div>
+                    </article>
+
+                    <article class="category-card">
+                        <div class="card-image-placeholder">Drivers y Baterías (Imagen)</div>
+                        <div class="card-info">
+                            <div>
+                                <h3>⚡ Electrónica y Potencia</h3>
+                                <p>Baterías de alta densidad, controladores de motor (Drivers) y sistemas de gestión de energía (BMS).</p>
+                            </div>
+                            <a href="#" class="card-link">Ver productos »</a>
+                        </div>
+                    </article>
+
+                    <article class="category-card">
+                        <div class="card-image-placeholder">LiDARs y Cámaras de Profundidad (Imagen)</div>
+                        <div class="card-info">
+                            <div>
+                                <h3>👁️ Sensores y Percepción</h3>
+                                <p>Sistemas 4D LiDAR, cámaras estéreo binoculares y módulos de navegación IMU para entornos complejos.</p>
+                            </div>
+                            <a href="#" class="card-link">Ver productos »</a>
+                        </div>
+                    </article>
+
+                    <article class="category-card">
+                        <div class="card-image-placeholder">Placas de Procesamiento (Imagen)</div>
+                        <div class="card-info">
+                            <div>
+                                <h3>🧠 Unidades de Cómputo</h3>
+                                <p>Placas de procesamiento central (CPU/GPU) y microcontroladores dedicados para el control de movimiento en tiempo real.</p>
+                            </div>
+                            <a href="#" class="card-link">Ver productos »</a>
+                        </div>
+                    </article>
+
+                    <article class="category-card">
+                        <div class="card-image-placeholder">Accesorios y Kits (Imagen)</div>
+                        <div class="card-info">
+                            <div>
+                                <h3>🎨 Accesorios y Diseño</h3>
+                                <p>Kits de desarrollo, cargadores rápidos, patas de robot y piezas de diseño personalizadas.</p>
+                            </div>
+                            <a href="#" class="card-link">Ver productos »</a>
+                        </div>
+                    </article>
+                    
+                    <article class="category-card">
+                        <div class="card-image-placeholder">Software de Simulación (Imagen)</div>
+                        <div class="card-info">
+                            <div>
+                                <h3>💻 Software y Firmware</h3>
+                                <p>Licencias para simuladores, herramientas de depuración de firmware y APIs para el desarrollo de IA.</p>
+                            </div>
+                            <a href="#" class="card-link">Ver productos »</a>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer style="background-color: var(--container-color); padding: 1rem; text-align: center; margin-top: 3rem;">
+        <p style="color: #666; font-size: 0.8rem;">&copy; 2024 Clone Académico. Categorías.</p>
+    </footer>
+
+    <script>
+        // --- JavaScript para Simular Parallax (Mejora la sensación) ---
+        // Este script es opcional, ya que el CSS ya hace el efecto básico. 
+        // Agrega un ligero movimiento vertical a la imagen de fondo.
+        
+        const parallaxHero = document.getElementById('parallax-section');
+
+        window.addEventListener('scroll', function() {
+            // Calcula la posición de scroll
+            let scrollPosition = window.pageYOffset;
+            
+            // Mueve el fondo del hero section ligeramente hacia arriba
+            // El factor de 0.5 hace que se mueva a la mitad de la velocidad del scroll, creando el efecto
+            parallaxHero.style.backgroundPositionY = (scrollPosition * 0.5) + 'px';
+        });
+
+        // NOTA: Para dispositivos móviles, el CSS desactiva el 'fixed' 
+        // background-attachment para mejorar el rendimiento.
+    </script>
+</body>
+</html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Producto - Unitree Go2</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- CSS (Estilos) --- */
+        :root {
+            --header-height: 3.5rem;
+            --primary-color: #ffffff;
+            --secondary-color: #aaaaaa;
+            --accent-color: #007bff; /* Azul tecnológico */
+            --danger-color: #ff4d4d; /* Rojo para precio */
+            --body-color: #0a0a0a;
+            --container-color: #1c1c1c;
+            --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--body-color);
+            color: var(--primary-color);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section {
+            padding: 4rem 0 2rem;
+        }
+
+        /* --- Header y Navegación (Simplificada) --- */
+        .header {
+            width: 100%;
+            background-color: var(--container-color);
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        /* --- Detalle Principal del Producto --- */
+        .product-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            padding-top: 3rem;
+        }
+        
+        /* --- Columna Izquierda (Imágenes y Video) --- */
+        .product-media {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .main-image {
+            background-color: #333;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-placeholder {
+            color: var(--secondary-color);
+        }
+
+        .thumbnail-gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .thumbnail {
+            background-color: #333;
+            border-radius: 4px;
+            height: 80px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border-color 0.2s;
+            opacity: 0.7;
+        }
+
+        .thumbnail:hover, .thumbnail.active {
+            border-color: var(--accent-color);
+            opacity: 1;
+        }
+
+        .product-video {
+            margin-top: 2rem;
+            background-color: #333;
+            height: 300px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* --- Columna Derecha (Info y Compra) --- */
+        .product-info h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-info h2 {
+            color: var(--danger-color);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .description p {
+            color: var(--secondary-color);
+            margin-bottom: 2rem;
+        }
+
+        /* --- Opciones y Cantidad --- */
+        .options-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .options-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .select-option {
+            background-color: #333;
+            color: var(--primary-color);
+            padding: 0.75rem;
+            border: 1px solid #555;
+            border-radius: 4px;
+            appearance: none; /* Oculta el estilo nativo de select */
+            width: 100%;
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .quantity-control label {
+            font-weight: 600;
+        }
+
+        .quantity-input {
+            width: 60px;
+            padding: 0.5rem;
+            text-align: center;
+            background-color: #333;
+            color: var(--primary-color);
+            border: 1px solid #555;
+            border-radius: 4px;
+        }
+
+        /* --- Botones --- */
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: 0.3s;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            font-size: 1rem;
+        }
+
+        .btn-add-cart {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn-add-cart:hover {
+            background-color: #0060c0;
+        }
+
+        .btn-buy-now {
+            background-color: var(--primary-color);
+            color: var(--body-color);
+        }
+
+        .btn-buy-now:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        /* --- Productos Similares --- */
+        .similar-products-title {
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .similar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .similar-card {
+            background-color: var(--container-color);
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            padding-bottom: 1rem;
+        }
+
+        .similar-img {
+            height: 150px;
+            background-color: #333;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .similar-card h5 {
+            margin-bottom: 0.5rem;
+        }
+
+        .similar-card span {
+            color: var(--danger-color);
+            font-weight: 700;
+        }
+
+        /* --- MEDIA QUERIES (Responsive) --- */
+        @media screen and (max-width: 992px) {
+            .product-detail {
+                grid-template-columns: 1fr; /* Apilado en móvil/tablet */
+            }
+        }
+        
+        @media screen and (max-width: 576px) {
+            .thumbnail-gallery {
+                grid-template-columns: repeat(3, 1fr); /* 3 columnas en móviles pequeños */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">UNITREE</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <p style="margin: 1.5rem 0; color: var(--secondary-color); font-size: 0.9rem;">
+            <a href="#">Robots</a> > <a href="#">Quadrupedos</a> > **Go2**
+        </p>
+        
+        <section class="product-detail">
+            
+            <div class="product-media">
+                <div class="main-image" id="main-image">
+                    <span class="image-placeholder">Imagen Principal de Go2</span>
+                </div>
+
+                <div class="thumbnail-gallery" id="thumbnail-gallery">
+                    <div class="thumbnail active" data-src="img/go2-main.jpg"></div>
+                    <div class="thumbnail" data-src="img/go2-side.jpg"></div>
+                    <div class="thumbnail" data-src="img/go2-sensors.jpg"></div>
+                    <div class="thumbnail" data-src="img/go2-action.jpg"></div>
+                </div>
+
+                <div class="product-video">
+                    <i class="fas fa-play-circle" style="font-size: 3rem; color: var(--accent-color);"></i>
+                    <p style="margin-left: 1rem;">Video Promocional del Go2</p>
+                </div>
+            </div>
+
+            <div class="product-info">
+                <h1>Unitree Go2</h1>
+                <h2>$1,600 USD</h2>
+                
+                <div class="description">
+                    <p>
+                        El Unitree Go2 es la nueva generación de robots cuadrúpedos impulsados por IA. 
+                        Diseñado para consumidores y entusiastas, incorpora un sistema de percepción 4D LiDAR 
+                        y un potente motor para un movimiento ágil y estable. Ideal para exploración, 
+                        entretenimiento y desarrollo de IA.
+                    </p>
+                    <ul>
+                        <li><i class="fas fa-check-circle" style="color: var(--accent-color);"></i> Sistema LiDAR de 4D</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--accent-color);"></i> 12 grados de libertad</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--accent-color);"></i> Batería de alto rendimiento</li>
+                    </ul>
+                </div>
+
+                <div class="options-group">
+                    <label for="version">Selecciona la Versión:</label>
+                    <select id="version" class="select-option">
+                        <option value="air">Go2 Air</option>
+                        <option value="pro" selected>Go2 Pro</option>
+                        <option value="edu">Go2 Edu (Para desarrolladores)</option>
+                    </select>
+                </div>
+
+                <div class="quantity-control">
+                    <label for="quantity">Cantidad:</label>
+                    <input type="number" id="quantity" class="quantity-input" value="1" min="1" max="10">
+                </div>
+
+                <button class="btn btn-add-cart" onclick="addToCart()">
+                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                </button>
+                <button class="btn btn-buy-now" onclick="buyNow()">
+                    Comprar Ahora
+                </button>
+            </div>
+
+        </section>
+
+        <section class="similar-products section">
+            <h3 class="similar-products-title">Productos Similares</h3>
+            <div class="similar-grid">
+                
+                <div class="similar-card">
+                    <a href="#">
+                        <div class="similar-img"><span class="image-placeholder">Unitree B2</span></div>
+                        <h5>Unitree B2</h5>
+                        <span>$12,000 USD</span>
+                    </a>
+                </div>
+                
+                <div class="similar-card">
+                    <a href="#">
+                        <div class="similar-img"><span class="image-placeholder">Unitree H1</span></div>
+                        <h5>Unitree H1</h5>
+                        <span>$99,000 USD</span>
+                    </a>
+                </div>
+                
+                <div class="similar-card">
+                    <a href="#">
+                        <div class="similar-img"><span class="image-placeholder">LiDAR L2</span></div>
+                        <h5>4D LiDAR L2</h5>
+                        <span>$900 USD</span>
+                    </a>
+                </div>
+                
+                <div class="similar-card">
+                    <a href="#">
+                        <div class="similar-img"><span class="image-placeholder">Unitree PUMP</span></div>
+                        <h5>Unitree PUMP</h5>
+                        <span>$199 USD</span>
+                    </a>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    
+    <footer style="background-color: var(--container-color); padding: 1rem; text-align: center; margin-top: 3rem;">
+        <p style="color: #666; font-size: 0.8rem;">&copy; 2024 Clone Académico. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // --- JavaScript (Funcionalidad) ---
+        
+        // 1. Funcionalidad de Galería de Miniaturas
+        const mainImage = document.getElementById('main-image');
+        const thumbnails = document.querySelectorAll('.thumbnail');
+        
+        thumbnails.forEach(thumbnail => {
+            thumbnail.addEventListener('click', function() {
+                // Eliminar la clase 'active' de todas las miniaturas
+                thumbnails.forEach(t => t.classList.remove('active'));
+                // Agregar 'active' a la miniatura clickeada
+                this.classList.add('active');
+                
+                const src = this.getAttribute('data-src');
+                
+                // Si la imagen es un placeholder, solo cambia el texto/estilo
+                if (src.includes('img/')) {
+                    // En una implementación real, aquí cambiarías la etiqueta <img>
+                    mainImage.innerHTML = `<span class="image-placeholder" style="font-size: 1.5rem; color: ${src === 'img/go2-main.jpg' ? 'white' : 'var(--accent-color)'};">Foto: ${src.split('/')[1].replace('.jpg', '')}</span>`;
+                }
+            });
+        });
+
+        // 2. Funcionalidad de Carrito y Compra
+        function getProductDetails() {
+            const name = "Unitree Go2";
+            const price = 1600;
+            const quantity = parseInt(document.getElementById('quantity').value) || 1;
+            const version = document.getElementById('version').value;
+            return { name, price, quantity, version };
+        }
+
+        function addToCart() {
+            const product = getProductDetails();
+            alert(`¡Agregado al Carrito! \nProducto: ${product.name} (${product.version}) \nCantidad: ${product.quantity} \nTotal Aprox.: $${(product.price * product.quantity).toLocaleString()} USD`);
+            // Lógica real: Enviar datos a una API o almacenar en LocalStorage
+        }
+
+        function buyNow() {
+            const product = getProductDetails();
+            alert(`Iniciando compra de: \n${product.quantity}x ${product.name} (${product.version}) \nTotal Aprox.: $${(product.price * product.quantity).toLocaleString()} USD`);
+            // Lógica real: Redirigir a la pasarela de pago
+        }
+    </script>
+</body>
+</html>

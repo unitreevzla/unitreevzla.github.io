@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categoría: Unidades de Cómputo y Control</title>
+    
+    <style>
+        /* --- CSS (Estilos) --- */
+        :root {
+            --header-height: 3.5rem;
+            --primary-color: #ffffff;
+            --secondary-color: #aaaaaa;
+            --accent-color: #00ff73; /* Verde tecnológico/IA para esta página */
+            --body-color: #0a0a0a;
+            --container-color: #1c1c1c;
+            --card-hover-color: #2a2a2a;
+            --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--body-color);
+            color: var(--primary-color);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .header {
+            width: 100%;
+            background-color: var(--container-color);
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+        }
+
+        /* --- Parallax Hero Section (Misma implementación CSS) --- */
+        .parallax-hero {
+            background-image: url('https://via.placeholder.com/1920x1080/1a1a1a/cccccc?text=IA+Core+Computing');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 60vh; 
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-top: -var(--header-height);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); 
+        }
+
+        .hero-content {
+            z-index: 10;
+        }
+        
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+        }
+        
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* --- Listado de Productos Específicos --- */
+        .products-section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .product-card {
+            background-color: var(--container-color);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s, background-color 0.3s;
+            border: 1px solid #333;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            background-color: var(--card-hover-color);
+        }
+        
+        .product-image-placeholder {
+            height: 200px;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--accent-color);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-info p {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            height: 50px; /* Altura fija para uniformidad */
+            overflow: hidden;
+        }
+        
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .btn-detail {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--body-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .btn-detail:hover {
+            background-color: #00c75a;
+        }
+
+        /* --- MEDIA QUERIES (Responsive) --- */
+        @media screen and (max-width: 768px) {
+            .parallax-hero {
+                height: 40vh;
+                background-attachment: scroll; 
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .product-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">UNITREE / CÓMPUTO</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="parallax-hero" id="parallax-section">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <h1>Núcleo de Control y Procesamiento</h1>
+                <p>Equipos de cómputo embebido y drivers de motor de precisión extrema para el control de movimiento y la IA.</p>
+            </div>
+        </section>
+
+        <section class="products-section">
+            <div class="container">
+                <h2 class="section-title">Unidades de Alto Rendimiento</h2>
+                <div class="product-list">
+                    
+                    <article class="product-card">
+                        <div class="product-image-placeholder">NVIDIA Jetson Orin Nano</div>
+                        <div class="product-info">
+                            <h3>NVIDIA Orin Nano Core</h3>
+                            <p>Plataforma de IA de alto rendimiento con 20 TOPS. Ideal para modelos de percepción.</p>
+                            <span class="product-price">$499 USD</span>
+                            <a href="#" class="btn-detail">Ver Detalles</a>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-image-placeholder">NVIDIA Jetson AGX Xavier</div>
+                        <div class="product-info">
+                            <h3>NVIDIA Jetson Xavier</h3>
+                            <p>Unidad de cómputo para aplicaciones críticas y sistemas de navegación complejos (32 TOPS).</p>
+                            <span class="product-price">$999 USD</span>
+                            <a href="#" class="btn-detail">Ver Detalles</a>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-image-placeholder">CPU Industrial Embebida</div>
+                        <div class="product-info">
+                            <h3>CPU Core Industrial i7</h3>
+                            <p>Procesador principal para tareas de alto nivel, planificación y comunicación. Ultra-robusto.</p>
+                            <span class="product-price">$1,250 USD</span>
+                            <a href="#" class="btn-detail">Ver Detalles</a>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-image-placeholder">Driver de Motor Digital SV1-25</div>
+                        <div class="product-info">
+                            <h3>Driver Digital SV1-25</h3>
+                            <p>Controlador de servomotor de alto par con comunicación CAN-FD, esencial para actuadores.</p>
+                            <span class="product-price">$150 USD</span>
+                            <a href="#" class="btn-detail">Ver Detalles</a>
+                        </div>
+                    </article>
+                    
+                    <article class="product-card">
+                        <div class="product-image-placeholder">MCU de Baja Latencia</div>
+                        <div class="product-info">
+                            <h3>MCU Control Unit Pro</h3>
+                            <p>Microcontrolador dedicado para el ciclo de control de movimiento de baja latencia (1kHz+).</p>
+                            <span class="product-price">$300 USD</span>
+                            <a href="#" class="btn-detail">Ver Detalles</a>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer style="background-color: var(--container-color); padding: 1rem; text-align: center; margin-top: 3rem;">
+        <p style="color: #666; font-size: 0.8rem;">&copy; 2024 Clone Académico. Unidades de Cómputo.</p>
+    </footer>
+
+    <script>
+        const parallaxHero = document.getElementById('parallax-section');
+
+        // Función Parallax para darle movimiento al scroll
+        window.addEventListener('scroll', function() {
+            let scrollPosition = window.pageYOffset;
+            
+            // Ajuste de la posición del fondo
+            parallaxHero.style.backgroundPositionY = (scrollPosition * 0.4) + 'px';
+        });
+
+        // NOTA: En pantallas pequeñas, el CSS deshabilita el 'fixed' 
+        // background-attachment para mejorar el rendimiento.
+    </script>
+</body>
+</html>
